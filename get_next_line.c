@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 19:22:33 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/01 21:54:34 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/01/01 22:18:37 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 int		last_return(int readsize, char *backup, char **line)
 {
 	*line = backup;
-	cut_with_newline(&backup);
-	free(backup);
-	if (readsize == -1)
-		return (-1);
-	return (0);
+	return (readsize);
 }
 
 int		get_next_line(int fd, char **line)
