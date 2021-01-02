@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 22:10:20 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/02 22:00:58 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/01/02 22:27:15 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			ft_strchr(char *backup, int c)
 
 	i = 0;
 	if (!backup)
-		return (NULL);
+		return (0);
 	while (backup[i])
 	{
 		if (backup[i] == c)
@@ -36,8 +36,8 @@ void		cut_with_newline(char **backup)
 	while ((*backup)[i] != '\n')
 		i++;
 	(*backup)[i] = '\0';
-	if (ft_strlen((*backup)[i + 1] > 0))
-		*backup = ft_strdup((*backup)[i + 1]);
+	if (ft_strlen(&(*backup)[i + 1]) > 0)
+		*backup = ft_strdup(&(*backup)[i + 1]);
 	else
 		*backup = NULL;
 }
