@@ -6,11 +6,41 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 22:10:20 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/01 22:18:36 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/01/02 22:00:58 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int			ft_strchr(char *backup, int c)
+{
+	int		i;
+
+	i = 0;
+	if (!backup)
+		return (NULL);
+	while (backup[i])
+	{
+		if (backup[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void		cut_with_newline(char **backup)
+{
+	int		i;
+
+	i = 0;
+	while ((*backup)[i] != '\n')
+		i++;
+	(*backup)[i] = '\0';
+	if (ft_strlen((*backup)[i + 1] > 0))
+		*backup = ft_strdup((*backup)[i + 1]);
+	else
+		*backup = NULL;
+}
 
 int			ft_strlen(char *s)
 {
@@ -38,35 +68,6 @@ char		*ft_strdup(char *s1)
 	}
 	c1[len] = 0;
 	return (c1);
-}
-
-int			has_newline(char *backup)
-{
-	int		i;
-
-	i = 0;
-	if (!backup)
-		return (0);
-	while (backup[i])
-	{
-		if (backup[i] == '\n')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void		cut_with_newline(char **backup)
-{
-	int		i;
-
-	i = 0;
-	if (!backup)
-		return ;
-	while ((*backup)[i] != '\n')
-		i++;
-	(*backup)[i] = '\0';
-	*backup = ft_strdup(&(*backup)[i + 1]);
 }
 
 char		*ft_strjoin_free(char *s1, char *s2)
