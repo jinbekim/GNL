@@ -6,26 +6,26 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 22:10:20 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/02 22:27:15 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/01/05 20:16:11 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			ft_strchr(char *backup, int c)
+int			has_newline(char *backup)
 {
 	int		i;
 
 	i = 0;
 	if (!backup)
-		return (0);
+		return (-1);
 	while (backup[i])
 	{
-		if (backup[i] == c)
-			return (1);
+		if (backup[i] == '\n')
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 void		cut_with_newline(char **backup)
@@ -36,7 +36,7 @@ void		cut_with_newline(char **backup)
 	while ((*backup)[i] != '\n')
 		i++;
 	(*backup)[i] = '\0';
-	if (ft_strlen(&(*backup)[i + 1]) > 0)
+	if (ft_strlen(&(*backup)[i + 1]) >= 0)
 		*backup = ft_strdup(&(*backup)[i + 1]);
 	else
 		*backup = NULL;
@@ -60,13 +60,13 @@ char		*ft_strdup(char *s1)
 	len = ft_strlen(s1);
 	if (!(c1 = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
+	c1[len] = 0;
 	len = 0;
 	while (s1[len])
 	{
 		c1[len] = s1[len];
 		len++;
 	}
-	c1[len] = 0;
 	return (c1);
 }
 
