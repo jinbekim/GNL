@@ -6,7 +6,7 @@
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 00:33:39 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/06 00:33:41 by jinbekim         ###   ########.fr       */
+/*   Updated: 2021/01/06 23:20:30 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int			has_newline(char *backup)
 void		cut_with_newline(char **backup)
 {
 	int		i;
+	char	*tmp;
 
+	tmp = *backup;
 	i = 0;
 	while ((*backup)[i] != '\n')
 		i++;
@@ -40,6 +42,7 @@ void		cut_with_newline(char **backup)
 		*backup = ft_strdup(&(*backup)[i + 1]);
 	else
 		*backup = NULL;
+	free(tmp);
 }
 
 int			ft_strlen(char *s)
