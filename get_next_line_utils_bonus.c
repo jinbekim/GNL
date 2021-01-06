@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinbekim <jinbekim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/30 22:10:20 by jinbekim          #+#    #+#             */
-/*   Updated: 2021/01/06 00:31:17 by jinbekim         ###   ########.fr       */
+/*   Created: 2021/01/06 00:33:39 by jinbekim          #+#    #+#             */
+/*   Updated: 2021/01/06 00:33:41 by jinbekim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int			has_newline(char *backup)
 {
